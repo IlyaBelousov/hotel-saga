@@ -1,0 +1,31 @@
+.hContainer {
+    width: 100%;
+    height: 100vh;
+    background: #E5E5E5;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.hotelHeader{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    color: #41522E;
+}
+.hotelHeader h3{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    margin: 0;
+}
+.hotelWrapper{
+    width: 100%;
+    display: flex;
+}
