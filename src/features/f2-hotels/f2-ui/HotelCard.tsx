@@ -1,38 +1,55 @@
 import React from 'react';
 import s from './HotelCard.module.css'
 import HotelHead from "./HotelHead";
-import Carousel from "./Carousel";
+import picture1 from '../../../assets/images/Rectangle23.png'
+import picture2 from '../../../assets/images/Rectangle24.png'
+import picture3 from '../../../assets/images/Rectangle28.png'
+import 'react-alice-carousel/lib/alice-carousel.css';
+import AliceCarousel from "react-alice-carousel";
+import {HotelRow} from "./HotelRow";
 
 
 export const HotelCard = () => {
     const items = [
         {
-            name: 'Aya Bouchiha',
-            description: 'Full Stack Web Developer',
+            name: 'Image1',
+            img:picture1
+        },
+
+        {
+            name: 'Image3',
+            img:picture3
         },
         {
-            name: 'John Doe',
-            description: 'Author',
+            name: 'Image3',
+            img:picture2
         },
-        {
-            name: 'Pitsu Coma',
-            description: 'Math Student',
-        },
+
     ];
-    let itemsMap = items.map(i=><span>{i.name}</span>)
+    let itemsMap = items.map(i=><img src={i.img} className={s.slide} alt={'img'}/>)
     return <div className={s.hotelCard}>
         <HotelHead/>
-        <div className={s.carousel}>
-            <Carousel children={itemsMap}/>
-
-
-        </div>
+            <AliceCarousel
+                autoWidth
+                autoPlay
+                autoPlayStrategy="none"
+                autoPlayInterval={1500}
+                animationDuration={1500}
+                animationType="slide"
+                infinite
+                touchTracking={false}
+                disableDotsControls
+                disableButtonsControls
+                items={itemsMap}
+            />
         <div className={s.favourite}>
 
         </div>
-        <div className={s.table}>
-
+        <div className={s.scrollBlock}>
+            <HotelRow/>
         </div>
+
+
     </div>
 };
 

@@ -13,5 +13,40 @@
 }
 
 .carousel {
+    width: 100%;
+}
+.slide{
+    width: 164px;
+    height: 149px;
+    border-radius: 10px;
+}
+.favourite{
+    height: 50px;
+}
+.scrollBlock {
+    box-sizing: border-box;
+    padding-left: 11px;
+    height: 515px;
+    width: 100%;
+    overflow-y: scroll;
+    border-right: 1px solid #E7E7E7;
+    border-radius: 2px
+}
 
+.scrollBlock::-webkit-scrollbar-track {
+
+    border-radius: 2px;
+}
+
+.scrollBlock::-webkit-scrollbar {
+    width: 2px;
+}
+
+.scrollBlock::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: #f0f2f5;
+}
+
+.scrollBlock:hover::-webkit-scrollbar-thumb {
+    background: #1157A7;
 }
