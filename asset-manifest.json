@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/hotel-saga/static/css/main.f14e3ffb.chunk.css",
+    "main.js": "/hotel-saga/static/js/main.c1c945ad.chunk.js",
+    "main.js.map": "/hotel-saga/static/js/main.c1c945ad.chunk.js.map",
+    "runtime-main.js": "/hotel-saga/static/js/runtime-main.29c71860.js",
+    "runtime-main.js.map": "/hotel-saga/static/js/runtime-main.29c71860.js.map",
+    "static/css/2.02daa001.chunk.css": "/hotel-saga/static/css/2.02daa001.chunk.css",
+    "static/js/2.6448142d.chunk.js": "/hotel-saga/static/js/2.6448142d.chunk.js",
+    "static/js/2.6448142d.chunk.js.map": "/hotel-saga/static/js/2.6448142d.chunk.js.map",
+    "static/js/3.4e764194.chunk.js": "/hotel-saga/static/js/3.4e764194.chunk.js",
+    "static/js/3.4e764194.chunk.js.map": "/hotel-saga/static/js/3.4e764194.chunk.js.map",
+    "index.html": "/hotel-saga/index.html",
+    "static/css/2.02daa001.chunk.css.map": "/hotel-saga/static/css/2.02daa001.chunk.css.map",
+    "static/css/main.f14e3ffb.chunk.css.map": "/hotel-saga/static/css/main.f14e3ffb.chunk.css.map",
+    "static/js/2.6448142d.chunk.js.LICENSE.txt": "/hotel-saga/static/js/2.6448142d.chunk.js.LICENSE.txt",
+    "static/media/App.module.css": "/hotel-saga/static/media/IMG_20210312_140957_1741.53a28ade.png",
+    "static/media/Rectangle23.18d612fb.png": "/hotel-saga/static/media/Rectangle23.18d612fb.png",
+    "static/media/Rectangle24.e9ed0e6c.png": "/hotel-saga/static/media/Rectangle24.e9ed0e6c.png",
+    "static/media/Rectangle28.5db6cfa4.png": "/hotel-saga/static/media/Rectangle28.5db6cfa4.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.29c71860.js",
+    "static/css/2.02daa001.chunk.css",
+    "static/js/2.6448142d.chunk.js",
+    "static/css/main.f14e3ffb.chunk.css",
+    "static/js/main.c1c945ad.chunk.js"
+  ]
+}
