@@ -8,7 +8,7 @@ import {Provider} from "react-redux";
 import {store} from "./main/m2-bll/store";
 
 ReactDOM.render(
-    <BrowserRouter>
+    <BrowserRouter basename={'/hotel-saga'}>
         <React.StrictMode>
             <Provider store={store}>
                 <App/>

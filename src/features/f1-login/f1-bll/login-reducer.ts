@@ -1,13 +1,20 @@
 const initialState = {
-    isLoggedIn: false
+    isLoggedIn: false,
+    isLoading: false
 }
 type initStateType = typeof initialState
 export const loginReducer = (state: initStateType = initialState, action: LoginActionsType): initStateType => {
     switch (action.type) {
-        case "login/SET-LOG-IN": {
+        case "LOGIN/SET-LOG-IN": {
             return {
                 ...state,
                 isLoggedIn: action.isLoggedIn
+            }
+        }
+        case 'LOGIN/SET-IS-LOADING':{
+            return {
+                ...state,
+                isLoading:action.isLoading
             }
         }
         default : {
@@ -18,9 +25,17 @@ export const loginReducer = (state: initStateType = initialState, action: LoginA
 //actions
 export const logIn = (isLoggedIn: boolean) => {
     return {
-        type: 'login/SET-LOG-IN',
+        type: 'LOGIN/SET-LOG-IN',
         isLoggedIn
-    }
+    } as const
+}
+export const setLoading = (isLoading:boolean) => {
+    return {
+        type: 'LOGIN/SET-IS-LOADING',
+        isLoading,
+    } as const
 }
 
-type LoginActionsType = ReturnType<typeof logIn>
+type LoginActionsType =
+    ReturnType<typeof logIn>
+    |ReturnType<typeof setLoading>

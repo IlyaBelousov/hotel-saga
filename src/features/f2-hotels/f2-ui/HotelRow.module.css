@@ -19,20 +19,38 @@
     justify-content: center;
     align-items: center;
 }
-
-.hotelDescription {
+.descriptionContainer {
     display: flex;
+    width: 100%;
     flex-direction: column;
-    align-items: flex-start;
-    margin-left: 24px;
+    justify-content: space-between;
+    padding: 0 10px 0 10px;
+    box-sizing: border-box;
+    max-height: max-content;
+}
+.description{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.dateCountDays{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.stars{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
 }
 
 .hotelName {
     font-style: normal;
     font-weight: 300;
-    font-size: 17px;
-    line-height: 22px;
+    margin: 0;
     color: #424242;
+    box-sizing: border-box;
 }
 
 .dateCountDays {
@@ -48,6 +66,7 @@
     justify-content: space-between;
     align-items: flex-end;
     padding-right: 5px;
+
 }
 
 .price {
@@ -60,6 +79,7 @@
     font-size: 11px;
     line-height: 22px;
     color: #878787;
+    margin-right: 10px;
 }
 
 .priceCount {
@@ -70,8 +90,7 @@
     color: #424242;
 }
 
-.descriptionContainer {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
+
+.hotelPrice img{
+    cursor: pointer;
 }

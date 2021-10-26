@@ -1,0 +1,21 @@
+.inputForm {
+    appearance: none;
+    border: 1px solid rgba(0, 0, 0, 0.44);
+    border-radius: 4px;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 17px;
+}
+.inputFormError {
+    appearance: none;
+    border: 1px solid #EB1717;
+    border-radius: 4px;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 17px;
+    color: #EB1717;
+}
+.inputForm :active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
+}

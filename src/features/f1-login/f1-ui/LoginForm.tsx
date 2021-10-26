@@ -1,11 +1,10 @@
 import React from 'react';
 import {useFormik} from "formik";
 import s from './Login.module.css'
-import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../../main/m2-bll/store";
-import {logIn} from "../f1-bll/login-reducer";
-import {Input} from "../../../common/components/Input";
-import {Button} from "../../../common/components/Button";
+import {useDispatch} from "react-redux";
+import {logIn, setLoading} from "../f1-bll/login-reducer";
+import {Input} from "../../../common/components/input/Input";
+import {Button} from "../../../common/components/button/Button";
 
 type FormikErrorType = {
     email?: string
@@ -35,8 +34,10 @@ export const LoginForm = () => {
             password: '',
         },
         onSubmit: values => {
+            dispatch(setLoading(true))
             setTimeout(()=>{
                 dispatch(logIn(true))
+                dispatch(setLoading(false))
             },1000)
         },
     })
@@ -46,7 +47,8 @@ export const LoginForm = () => {
             <div className={s.inputDescription}>
                 Логин
             </div>
-            <Input  style={{height: '40px', width: '340px'}}
+            <Input  error={!!formik.errors.email}
+                style={{height: '50px', width: '340px'}}
                    onChange={formik.handleChange}
                    value={formik.values.email}
                    type="text" name={'email'}/>
@@ -57,14 +59,16 @@ export const LoginForm = () => {
             <div className={s.inputDescription}>
                 Пароль
             </div>
-            <Input style={{height: '40px', width: '340px'}}
+            <Input error={!!formik.errors.password}
+                style={{height: '50px', width: '340px'}}
                    onChange={formik.handleChange}
                    value={formik.values.password}
                    type="password" name={'password'}/>
             {formik.errors.password ? <span className={s.errorMessage}>{formik.errors.password}</span> : null}
 
         </div>
-        <Button disabled={!!(formik.errors.email || formik.errors.password)}
+        <Button style={{width: '325px'}}
+            disabled={!!(formik.errors.email || formik.errors.password)}
                 className={formik.errors.email || formik.errors.password ? s.disabledButton : s.loginButton}
                 type={'submit'}>Войти</Button>
 

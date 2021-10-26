@@ -1,0 +1,31 @@
+.ratingWrapper{
+    margin-right: 10px;
+}
+
+
+.Wrapper{
+    display: flex;
+    width: 89px;
+    height: 28px;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 1px solid #41522E;
+    border-radius: 4px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    color: #41522E;
+    margin-right: 10px;
+}
+.selector{
+    width: 30px;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.selector img{
+    cursor: pointer;
+}
