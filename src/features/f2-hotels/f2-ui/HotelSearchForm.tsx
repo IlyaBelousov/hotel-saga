@@ -32,6 +32,9 @@ export const HotelSearchForm = () => {
             case 6: {
                 if (datePickerValue) {
                     let monthRangeFor30 = Math.ceil(+(datePickerValue && datePickerValue?.getDate() + count) / 30)
+                    if(((datePickerValue?.getDate() + count) - 30)<10){
+                        return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + monthRangeFor30}-0${datePickerValue && (datePickerValue?.getDate() + count) - 30}`
+                    }
                     if ((datePickerValue && datePickerValue?.getDate() + count) > 30) {
                         return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + monthRangeFor30}-${datePickerValue && (datePickerValue?.getDate() + count) - 30}`
                     } else {
@@ -43,7 +46,10 @@ export const HotelSearchForm = () => {
             default: {
                 if (datePickerValue) {
                     let monthRangeFor31 = Math.ceil(+(datePickerValue && datePickerValue?.getDate() + count) / 31)
-                    if ((datePickerValue && datePickerValue?.getDate() + count) > 30) {
+                    if ((datePickerValue && datePickerValue?.getDate() + count) > 31) {
+                        if(((datePickerValue?.getDate() + count) - 31)<10){
+                            return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + monthRangeFor31}-0${datePickerValue && (datePickerValue?.getDate() + count) - 31}`
+                        }
                         return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + monthRangeFor31}-${datePickerValue && (datePickerValue?.getDate() + count) - 31}`
                     }
                     else {
@@ -58,6 +64,7 @@ export const HotelSearchForm = () => {
 
     const onSubmitHandler = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        console.log(changeCheckOutDate())
         dispatch(fetchData(location, checkInDate && checkInDate, changeCheckOutDate()))
         dispatch(checkInDate && setCheckIn(checkInDate))
         dispatch(setDaysCount(count))
