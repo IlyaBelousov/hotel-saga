@@ -21,13 +21,7 @@ import {Alert} from "@mui/lab";
 export const Hotels = () => {
     const isLoading = useSelector<AppRootStateType, boolean>(state => state.hotel.isLoading)
     const error = useSelector<AppRootStateType,string>(state=>state.hotel.error)
-    const checkInDate = `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`
-    const checkOutDate = `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate() + 1}`
     const dispatch = useDispatch()
-    useEffect(() => {
-        dispatch(fetchData('Moscow', checkInDate, checkOutDate))
-        dispatch(setCheckIn(checkInDate))
-    }, [dispatch,checkInDate,checkOutDate])
     const isLoggedIn = useSelector<AppRootStateType, boolean>(state => state.login.isLoggedIn)
     const logOutHandler = () => {
         dispatch(setIsLoading(true))

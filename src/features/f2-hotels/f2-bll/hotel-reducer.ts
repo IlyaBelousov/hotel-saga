@@ -20,6 +20,7 @@ type InitialStateType = typeof initialState
 export const hotelReducer = (state: InitialStateType = initialState, action: HotelActionsType): InitialStateType => {
     switch (action.type) {
         case "HOTELS/FETCH-HOTELS": {
+            debugger
             return {
                 ...state,
                 hotels: [...action.hotels]

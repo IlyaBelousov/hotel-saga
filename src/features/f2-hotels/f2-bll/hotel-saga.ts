@@ -4,6 +4,7 @@ import {fetchHotels, setError, setIsLoading} from "./hotel-reducer";
 
 
 export function* fetchHotelData(action: ReturnType<typeof fetchData>) {
+    debugger
     yield put(setIsLoading(true))
     try {
         const res: ResponseType = yield call(hotelAPI.getHotels, action.city, action.checkIn, action.checkOut)
@@ -15,7 +16,6 @@ export function* fetchHotelData(action: ReturnType<typeof fetchData>) {
 }
 
 export const fetchData = (city: string, checkIn: string|undefined, checkOut: string|undefined) => ({
-
     type: 'HOTELS/HOTEL_DATA/SAGA', city, checkIn, checkOut
 });
 
