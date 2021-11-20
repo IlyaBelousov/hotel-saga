@@ -63,6 +63,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/helper-compilation-targets": "^7.16.3",
     "@types/styled-components": "^5.1.15"
   }
 }

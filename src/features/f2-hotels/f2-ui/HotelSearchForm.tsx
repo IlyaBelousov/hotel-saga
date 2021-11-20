@@ -31,12 +31,13 @@ export const HotelSearchForm = () => {
             case 4:
             case 6: {
                 if (datePickerValue) {
+                    debugger
                     let monthRangeFor30 = Math.ceil(+(datePickerValue && datePickerValue?.getDate() + count) / 30)
                     if(((datePickerValue?.getDate() + count) - 30)<10){
                         return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + monthRangeFor30}-0${datePickerValue && (datePickerValue?.getDate() + count) - 30}`
                     }
                     if ((datePickerValue && datePickerValue?.getDate() + count) > 30) {
-                        return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + monthRangeFor30}-${datePickerValue && (datePickerValue?.getDate() + count) - 30}`
+                        return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + monthRangeFor30}-${(datePickerValue?.getDate() + count) - 30<10?'0'+(datePickerValue?.getDate() + count-30):(datePickerValue?.getDate() + count) - 30}`
                     } else {
                         return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + 1}-${datePickerValue && datePickerValue?.getDate() + count }`
                     }
@@ -44,6 +45,7 @@ export const HotelSearchForm = () => {
                 return
             }
             default: {
+                debugger
                 if (datePickerValue) {
                     let monthRangeFor31 = Math.ceil(+(datePickerValue && datePickerValue?.getDate() + count) / 31)
                     if ((datePickerValue && datePickerValue?.getDate() + count) > 31) {
@@ -53,6 +55,9 @@ export const HotelSearchForm = () => {
                         return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + monthRangeFor31}-${datePickerValue && (datePickerValue?.getDate() + count) - 31}`
                     }
                     else {
+                        if((datePickerValue?.getDate() + count)<10){
+                            return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + 1}-0${datePickerValue && datePickerValue?.getDate() + count }`
+                        }
                         return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + 1}-${datePickerValue && datePickerValue?.getDate() + count }`
                     }
                 }
