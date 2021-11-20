@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/hotel-saga/static/css/main.514c6ef6.chunk.css",
-    "main.js": "/hotel-saga/static/js/main.23f321c5.chunk.js",
-    "main.js.map": "/hotel-saga/static/js/main.23f321c5.chunk.js.map",
-    "runtime-main.js": "/hotel-saga/static/js/runtime-main.4c469f3f.js",
-    "runtime-main.js.map": "/hotel-saga/static/js/runtime-main.4c469f3f.js.map",
+    "main.css": "/hotel-saga/static/css/main.da93bcdd.chunk.css",
+    "main.js": "/hotel-saga/static/js/main.1ec648c0.chunk.js",
+    "main.js.map": "/hotel-saga/static/js/main.1ec648c0.chunk.js.map",
+    "runtime-main.js": "/hotel-saga/static/js/runtime-main.2c17c857.js",
+    "runtime-main.js.map": "/hotel-saga/static/js/runtime-main.2c17c857.js.map",
     "static/css/2.02daa001.chunk.css": "/hotel-saga/static/css/2.02daa001.chunk.css",
-    "static/js/2.b2e1f65c.chunk.js": "/hotel-saga/static/js/2.b2e1f65c.chunk.js",
-    "static/js/2.b2e1f65c.chunk.js.map": "/hotel-saga/static/js/2.b2e1f65c.chunk.js.map",
-    "static/js/3.a63de968.chunk.js": "/hotel-saga/static/js/3.a63de968.chunk.js",
-    "static/js/3.a63de968.chunk.js.map": "/hotel-saga/static/js/3.a63de968.chunk.js.map",
+    "static/js/2.2c54a33f.chunk.js": "/hotel-saga/static/js/2.2c54a33f.chunk.js",
+    "static/js/2.2c54a33f.chunk.js.map": "/hotel-saga/static/js/2.2c54a33f.chunk.js.map",
+    "static/js/3.96fb659e.chunk.js": "/hotel-saga/static/js/3.96fb659e.chunk.js",
+    "static/js/3.96fb659e.chunk.js.map": "/hotel-saga/static/js/3.96fb659e.chunk.js.map",
     "index.html": "/hotel-saga/index.html",
     "static/css/2.02daa001.chunk.css.map": "/hotel-saga/static/css/2.02daa001.chunk.css.map",
-    "static/css/main.514c6ef6.chunk.css.map": "/hotel-saga/static/css/main.514c6ef6.chunk.css.map",
-    "static/js/2.b2e1f65c.chunk.js.LICENSE.txt": "/hotel-saga/static/js/2.b2e1f65c.chunk.js.LICENSE.txt",
+    "static/css/main.da93bcdd.chunk.css.map": "/hotel-saga/static/css/main.da93bcdd.chunk.css.map",
+    "static/js/2.2c54a33f.chunk.js.LICENSE.txt": "/hotel-saga/static/js/2.2c54a33f.chunk.js.LICENSE.txt",
     "static/media/App.module.css": "/hotel-saga/static/media/IMG_20210312_140957_1741.53a28ade.png",
     "static/media/Rectangle23.18d612fb.png": "/hotel-saga/static/media/Rectangle23.18d612fb.png",
     "static/media/Rectangle24.e9ed0e6c.png": "/hotel-saga/static/media/Rectangle24.e9ed0e6c.png",
     "static/media/Rectangle28.5db6cfa4.png": "/hotel-saga/static/media/Rectangle28.5db6cfa4.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.4c469f3f.js",
+    "static/js/runtime-main.2c17c857.js",
     "static/css/2.02daa001.chunk.css",
-    "static/js/2.b2e1f65c.chunk.js",
-    "static/css/main.514c6ef6.chunk.css",
-    "static/js/main.23f321c5.chunk.js"
+    "static/js/2.2c54a33f.chunk.js",
+    "static/css/main.da93bcdd.chunk.css",
+    "static/js/main.1ec648c0.chunk.js"
   ]
 }
