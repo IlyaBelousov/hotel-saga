@@ -19,46 +19,89 @@ export const HotelSearchForm = () => {
         setLocation(e.currentTarget.value)
     }
     const onCountChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        if(+e.currentTarget.value<=0){
+        if (+e.currentTarget.value <= 0) {
             return
         }
         setCount(+e.currentTarget.value)
     }
     const checkInDate = datePickerValue?.toISOString().slice(0, 10)
     const changeCheckOutDate = () => {
+        console.log(datePickerValue?.getMonth())
         switch (datePickerValue && datePickerValue?.getMonth() + 1) {
             case 10:
             case 4:
             case 6: {
                 if (datePickerValue) {
-                    debugger
                     let monthRangeFor30 = Math.ceil(+(datePickerValue && datePickerValue?.getDate() + count) / 30)
-                    if(((datePickerValue?.getDate() + count) - 30)<10){
+                    if (((datePickerValue?.getDate() + count) - 30) < 10) {
                         return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + monthRangeFor30}-0${datePickerValue && (datePickerValue?.getDate() + count) - 30}`
                     }
                     if ((datePickerValue && datePickerValue?.getDate() + count) > 30) {
-                        return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + monthRangeFor30}-${(datePickerValue?.getDate() + count) - 30<10?'0'+(datePickerValue?.getDate() + count-30):(datePickerValue?.getDate() + count) - 30}`
+                        return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + monthRangeFor30}-${(datePickerValue?.getDate() + count) - 30 < 10 ? '0' + (datePickerValue?.getDate() + count - 30) : (datePickerValue?.getDate() + count) - 30}`
+                    }
+                    if ((datePickerValue && datePickerValue?.getDate() + count) < 10) {
+                        return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + monthRangeFor30}-0${datePickerValue && (datePickerValue?.getDate() + count)}`
                     } else {
-                        return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + 1}-${datePickerValue && datePickerValue?.getDate() + count }`
+                        return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + 1}-${datePickerValue && datePickerValue?.getDate() + count}`
                     }
                 }
                 return
             }
             default: {
-                debugger
                 if (datePickerValue) {
                     let monthRangeFor31 = Math.ceil(+(datePickerValue && datePickerValue?.getDate() + count) / 31)
                     if ((datePickerValue && datePickerValue?.getDate() + count) > 31) {
-                        if(((datePickerValue?.getDate() + count) - 31)<10){
+                        if (((datePickerValue?.getDate() + count) - 31) < 10) {
                             return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + monthRangeFor31}-0${datePickerValue && (datePickerValue?.getDate() + count) - 31}`
                         }
                         return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + monthRangeFor31}-${datePickerValue && (datePickerValue?.getDate() + count) - 31}`
-                    }
-                    else {
-                        if((datePickerValue?.getDate() + count)<10){
-                            return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + 1}-0${datePickerValue && datePickerValue?.getDate() + count }`
+                    } else {
+                        if ((datePickerValue?.getDate() + count) < 10) {
+                            return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + 1}-0${datePickerValue && datePickerValue?.getDate() + count}`
                         }
-                        return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + 1}-${datePickerValue && datePickerValue?.getDate() + count }`
+                        return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + 1}-${datePickerValue && datePickerValue?.getDate() + count}`
+                    }
+                }
+                return
+            }
+        }
+    }
+    const changeCheckOutDate1 = () => {
+        switch (datePickerValue && datePickerValue?.getMonth() + 1) {
+            case 10:
+            case 4:
+            case 6: {
+                if (datePickerValue) {
+                    let monthRangeFor30 = Math.ceil(+(datePickerValue && datePickerValue?.getDate() + count) / 30)
+                    let checkOutMonth = (datePickerValue?.getMonth() + monthRangeFor30) < 10 ? `0${datePickerValue?.getMonth() + monthRangeFor30}` : datePickerValue?.getMonth() + monthRangeFor30
+                    if (((datePickerValue?.getDate() + count) - 30) < 10) {
+                        return `${datePickerValue?.getFullYear()}-${checkOutMonth}-0${datePickerValue && (datePickerValue?.getDate() + count) - 30}`
+                    }
+                    if ((datePickerValue && datePickerValue?.getDate() + count) > 30) {
+                        return `${datePickerValue?.getFullYear()}-${checkOutMonth}-${(datePickerValue?.getDate() + count) - 30 < 10 ? '0' + (datePickerValue?.getDate() + count - 30) : (datePickerValue?.getDate() + count) - 30}`
+                    }
+                    if ((datePickerValue && datePickerValue?.getDate() + count) < 10) {
+                        return `${datePickerValue?.getFullYear()}-${checkOutMonth}-0${datePickerValue && (datePickerValue?.getDate() + count)}`
+                    } else {
+                        let month = (datePickerValue?.getMonth() + 1) < 10 ? `0${datePickerValue?.getMonth() + 1}` : `${datePickerValue?.getMonth() + 1}`
+                        return `${datePickerValue?.getFullYear()}-${month}-${datePickerValue && datePickerValue?.getDate() + count}`
+                    }
+                }
+                return
+            }
+            default: {
+                if (datePickerValue) {
+                    let monthRangeFor31 = Math.ceil(+(datePickerValue && datePickerValue?.getDate() + count) / 31)
+                    if ((datePickerValue && datePickerValue?.getDate() + count) > 31) {
+                        if (((datePickerValue?.getDate() + count) - 31) < 10) {
+                            return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + monthRangeFor31}-0${datePickerValue && (datePickerValue?.getDate() + count) - 31}`
+                        }
+                        return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + monthRangeFor31}-${datePickerValue && (datePickerValue?.getDate() + count) - 31}`
+                    } else {
+                        if ((datePickerValue?.getDate() + count) < 10) {
+                            return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + 1}-0${datePickerValue && datePickerValue?.getDate() + count}`
+                        }
+                        return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + 1}-${datePickerValue && datePickerValue?.getDate() + count}`
                     }
                 }
                 return
@@ -104,9 +147,9 @@ export const HotelSearchForm = () => {
             </div>
             <Input
                 onChange={onCountChangeHandler}
-                   value={count}
-                   style={{height: '50px', width: '320px'}}
-                   type={'number'}/>
+                value={count}
+                style={{height: '50px', width: '320px'}}
+                type={'number'}/>
         </div>
         <Button>Найти</Button>
     </form>

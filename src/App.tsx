@@ -8,12 +8,11 @@ import {setCheckIn} from "./features/f2-hotels/f2-bll/hotel-reducer";
 
 function App() {
     const month = (new Date().getMonth() + 1)<10?`0${new Date().getMonth() + 1}`:`${new Date().getMonth() + 1}`
-    const day = (new Date().getDate())<10?`0${new Date().getDate()}`:`${new Date().getDate()}`
+    const day = (new Date().getDate()+1)<10?`0${new Date().getDate()+1}`:`${new Date().getDate()+1}`
     const checkInDate = `${new Date().getFullYear()}-${month}-${day}`
     const checkOutDate = `${new Date().getFullYear()}-${month}-${day}`
     const dispatch = useDispatch()
     useEffect(() => {
-        debugger
         dispatch(fetchData('Moscow', checkInDate, checkOutDate))
         dispatch(setCheckIn(checkInDate))
     }, [dispatch,checkInDate,checkOutDate])
