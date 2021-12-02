@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import s from './Hotels.module.css'
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../../main/m2-bll/store";
@@ -9,18 +9,27 @@ import {logIn} from "../../f1-login/f1-bll/login-reducer";
 import Card from "../../../common/components/container/Card";
 import {HotelCard} from "./HotelCard";
 import {HotelSearchForm} from "./HotelSearchForm";
-import {setError, setIsLoading} from "../f2-bll/hotel-reducer";
+import {setCheckIn, setError, setIsLoading} from "../f2-bll/hotel-reducer";
 import {FavouriteCard} from "./FavouriteCard";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 import {Snackbar} from "@mui/material";
 import {Alert} from "@mui/lab";
+import {fetchData} from "../f2-bll/hotel-saga";
+import {getCheckOutDate} from "../../../utils/checkout-date";
 
 
 export const Hotels = () => {
+    const month = (new Date().getMonth() + 1) < 10 ? `0${new Date().getMonth() + 1}` : `${new Date().getMonth() + 1}`
+    const checkInDay = (new Date().getDate()) < 10 ? `0${new Date().getDate()}` : `${new Date().getDate()}`
+    const checkInDate = `${new Date().getFullYear()}-${month}-${checkInDay}`
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(fetchData('Moscow', checkInDate, getCheckOutDate(new Date().getDate())))
+        dispatch(setCheckIn(checkInDate))
+    }, [dispatch, checkInDate])
     const isLoading = useSelector<AppRootStateType, boolean>(state => state.hotel.isLoading)
     const error = useSelector<AppRootStateType, string>(state => state.hotel.error)
-    const dispatch = useDispatch()
     const isLoggedIn = useSelector<AppRootStateType, boolean>(state => state.login.isLoggedIn)
     const logOutHandler = () => {
         dispatch(setIsLoading(true))
