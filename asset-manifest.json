@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/hotel-saga/static/css/main.dbe7b540.chunk.css",
-    "main.js": "/hotel-saga/static/js/main.27d6636f.chunk.js",
-    "main.js.map": "/hotel-saga/static/js/main.27d6636f.chunk.js.map",
+    "main.js": "/hotel-saga/static/js/main.f8a54657.chunk.js",
+    "main.js.map": "/hotel-saga/static/js/main.f8a54657.chunk.js.map",
     "runtime-main.js": "/hotel-saga/static/js/runtime-main.0e8820f4.js",
     "runtime-main.js.map": "/hotel-saga/static/js/runtime-main.0e8820f4.js.map",
     "static/css/2.02daa001.chunk.css": "/hotel-saga/static/css/2.02daa001.chunk.css",
@@ -24,6 +24,6 @@
     "static/css/2.02daa001.chunk.css",
     "static/js/2.3c288c3d.chunk.js",
     "static/css/main.dbe7b540.chunk.css",
-    "static/js/main.27d6636f.chunk.js"
+    "static/js/main.f8a54657.chunk.js"
   ]
 }
