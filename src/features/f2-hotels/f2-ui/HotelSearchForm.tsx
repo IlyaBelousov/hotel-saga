@@ -9,6 +9,7 @@ import {Button} from "../../../common/components/button/Button";
 import {fetchData} from "../f2-bll/hotel-saga";
 import {useDispatch} from "react-redux";
 import {setCheckIn, setDaysCount} from "../f2-bll/hotel-reducer";
+import {getCheckout} from "../../../utils/search-form-checkout";
 
 export const HotelSearchForm = () => {
     const [location, setLocation] = useState('Moscow')
@@ -25,95 +26,9 @@ export const HotelSearchForm = () => {
         setCount(+e.currentTarget.value)
     }
     const checkInDate = datePickerValue?.toISOString().slice(0, 10)
-    const changeCheckOutDate = () => {
-        console.log(datePickerValue?.getMonth())
-        switch (datePickerValue && datePickerValue?.getMonth() + 1) {
-            case 10:
-            case 4:
-            case 6: {
-                if (datePickerValue) {
-                    let monthRangeFor30 = Math.ceil(+(datePickerValue && datePickerValue?.getDate() + count) / 30)
-                    if (((datePickerValue?.getDate() + count) - 30) < 10) {
-                        return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + monthRangeFor30}-0${datePickerValue && (datePickerValue?.getDate() + count) - 30}`
-                    }
-                    if ((datePickerValue && datePickerValue?.getDate() + count) > 30) {
-                        return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + monthRangeFor30}-${(datePickerValue?.getDate() + count) - 30 < 10 ? '0' + (datePickerValue?.getDate() + count - 30) : (datePickerValue?.getDate() + count) - 30}`
-                    }
-                    if ((datePickerValue && datePickerValue?.getDate() + count) < 10) {
-                        return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + monthRangeFor30}-0${datePickerValue && (datePickerValue?.getDate() + count)}`
-                    } else {
-                        return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + 1}-${datePickerValue && datePickerValue?.getDate() + count}`
-                    }
-                }
-                return
-            }
-            default: {
-                if (datePickerValue) {
-                    let monthRangeFor31 = Math.ceil(+(datePickerValue && datePickerValue?.getDate() + count) / 31)
-                    if ((datePickerValue && datePickerValue?.getDate() + count) > 31) {
-                        if (((datePickerValue?.getDate() + count) - 31) < 10) {
-                            return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + monthRangeFor31}-0${datePickerValue && (datePickerValue?.getDate() + count) - 31}`
-                        }
-                        return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + monthRangeFor31}-${datePickerValue && (datePickerValue?.getDate() + count) - 31}`
-                    } else {
-                        if ((datePickerValue?.getDate() + count) < 10) {
-                            return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + 1}-0${datePickerValue && datePickerValue?.getDate() + count}`
-                        }
-                        return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + 1}-${datePickerValue && datePickerValue?.getDate() + count}`
-                    }
-                }
-                return
-            }
-        }
-    }
-    const changeCheckOutDate1 = () => {
-        switch (datePickerValue && datePickerValue?.getMonth() + 1) {
-            case 10:
-            case 4:
-            case 6: {
-                if (datePickerValue) {
-                    let monthRangeFor30 = Math.ceil(+(datePickerValue && datePickerValue?.getDate() + count) / 30)
-                    let checkOutMonth = (datePickerValue?.getMonth() + monthRangeFor30) < 10 ? `0${datePickerValue?.getMonth() + monthRangeFor30}` : datePickerValue?.getMonth() + monthRangeFor30
-                    if (((datePickerValue?.getDate() + count) - 30) < 10) {
-                        return `${datePickerValue?.getFullYear()}-${checkOutMonth}-0${datePickerValue && (datePickerValue?.getDate() + count) - 30}`
-                    }
-                    if ((datePickerValue && datePickerValue?.getDate() + count) > 30) {
-                        return `${datePickerValue?.getFullYear()}-${checkOutMonth}-${(datePickerValue?.getDate() + count) - 30 < 10 ? '0' + (datePickerValue?.getDate() + count - 30) : (datePickerValue?.getDate() + count) - 30}`
-                    }
-                    if ((datePickerValue && datePickerValue?.getDate() + count) < 10) {
-                        return `${datePickerValue?.getFullYear()}-${checkOutMonth}-0${datePickerValue && (datePickerValue?.getDate() + count)}`
-                    } else {
-                        let month = (datePickerValue?.getMonth() + 1) < 10 ? `0${datePickerValue?.getMonth() + 1}` : `${datePickerValue?.getMonth() + 1}`
-                        return `${datePickerValue?.getFullYear()}-${month}-${datePickerValue && datePickerValue?.getDate() + count}`
-                    }
-                }
-                return
-            }
-            default: {
-                if (datePickerValue) {
-                    let monthRangeFor31 = Math.ceil(+(datePickerValue && datePickerValue?.getDate() + count) / 31)
-                    if ((datePickerValue && datePickerValue?.getDate() + count) > 31) {
-                        if (((datePickerValue?.getDate() + count) - 31) < 10) {
-                            return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + monthRangeFor31}-0${datePickerValue && (datePickerValue?.getDate() + count) - 31}`
-                        }
-                        return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + monthRangeFor31}-${datePickerValue && (datePickerValue?.getDate() + count) - 31}`
-                    } else {
-                        if ((datePickerValue?.getDate() + count) < 10) {
-                            return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + 1}-0${datePickerValue && datePickerValue?.getDate() + count}`
-                        }
-                        return `${datePickerValue?.getFullYear()}-${datePickerValue && datePickerValue?.getMonth() + 1}-${datePickerValue && datePickerValue?.getDate() + count}`
-                    }
-                }
-                return
-            }
-        }
-    }
-
-
     const onSubmitHandler = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        console.log(changeCheckOutDate())
-        dispatch(fetchData(location, checkInDate && checkInDate, changeCheckOutDate()))
+        dispatch(fetchData(location, checkInDate && checkInDate, getCheckout(datePickerValue && (datePickerValue?.getFullYear()), datePickerValue && (datePickerValue?.getMonth() + 1), datePickerValue && (datePickerValue?.getDate()), count)))
         dispatch(checkInDate && setCheckIn(checkInDate))
         dispatch(setDaysCount(count))
     }

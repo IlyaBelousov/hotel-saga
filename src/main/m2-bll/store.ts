@@ -13,15 +13,15 @@ const rootReducer = combineReducers({
 const sagaMiddleWare = createSagaMiddleware();
 export type AppRootStateType = ReturnType<typeof rootReducer>
 
-export const store = createStore(rootReducer, applyMiddleware(sagaMiddleWare))
+export const store = createStore(rootReducer, loadState(), applyMiddleware(sagaMiddleWare))
 sagaMiddleWare.run(rootWatcher)
 
-// store.subscribe(() => {
-//     saveState({
-//         login: store.getState().login,
-//         hotel: store.getState().hotel,
-//     });
-// });
+store.subscribe(() => {
+    saveState({
+        login: store.getState().login,
+        hotel: store.getState().hotel,
+    });
+});
 
 function* rootWatcher() {
     yield all([hotelWatcherSaga()]);

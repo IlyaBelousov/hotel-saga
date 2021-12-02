@@ -21,7 +21,8 @@ h3 {
     justify-content: space-between;
 }
 
-.inputContainer {
+.inputContainer, .inputEmailError, .inputPasswordError {
+    font-size: 17px;
     position: static;
     max-height: max-content;
     width: 100%;
@@ -47,7 +48,7 @@ h3 {
     appearance: none;
     outline: none;
     width: 345px;
-    height: 50px;
+    min-height: 50px;
     background: linear-gradient(104.34deg, #41522E -15.34%, #BE8022 145.95%);
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
     border-radius: 4px;
@@ -56,6 +57,7 @@ h3 {
     font-size: 16px;
     line-height: 20px;
     color: #FFFFFF;
+    position: static;
 }
 
 button::-moz-focus-inner {
@@ -71,16 +73,21 @@ button::-moz-focus-inner {
     display: flex;
 }
 
-.inputEmailError .inputDescription {
+.inputEmailError .inputDescription, .inputPasswordError .inputDescription {
     color: #EB1717;
 }
 
+.inputEmailError input, .inputPasswordError input {
+    border: 1px solid red;
+    color: red;
+}
 
 
 .disabledButton {
-    margin-top: 32px;
+    margin-top: 10px;
     border: 0;
     cursor: pointer;
+    min-height: 50px;
     appearance: none;
     outline: none;
     width: 345px;

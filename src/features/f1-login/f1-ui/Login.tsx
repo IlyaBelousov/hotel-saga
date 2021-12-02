@@ -1,6 +1,5 @@
 import React from 'react';
 import s from './Login.module.css'
-import {LoginForm} from "./LoginForm";
 import {useSelector} from "react-redux";
 import {AppRootStateType} from "../../../main/m2-bll/store";
 import {Redirect} from "react-router-dom";
@@ -8,6 +7,7 @@ import {PATH} from '../../../common/c1-routes/Routes';
 import Card from "../../../common/components/container/Card";
 import CircularProgress from "@mui/material/CircularProgress";
 import Backdrop from "@mui/material/Backdrop";
+import {Form} from "./Form";
 
 export const Login = () => {
     const isLoggedIn = useSelector<AppRootStateType, boolean>(state => state.login.isLoggedIn)
@@ -22,7 +22,7 @@ export const Login = () => {
                 >
                     <CircularProgress color="inherit"/>
                 </Backdrop>}
-                <LoginForm/>
+                <Form/>
             </Card>
         </div>
     );

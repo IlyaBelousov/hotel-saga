@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import s from './Hotels.module.css'
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../../main/m2-bll/store";
@@ -8,9 +8,8 @@ import logout from '../../../assets/images/common-images/logout.png'
 import {logIn} from "../../f1-login/f1-bll/login-reducer";
 import Card from "../../../common/components/container/Card";
 import {HotelCard} from "./HotelCard";
-import {fetchData} from "../f2-bll/hotel-saga";
 import {HotelSearchForm} from "./HotelSearchForm";
-import {setCheckIn, setError, setIsLoading} from "../f2-bll/hotel-reducer";
+import {setError, setIsLoading} from "../f2-bll/hotel-reducer";
 import {FavouriteCard} from "./FavouriteCard";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -20,15 +19,15 @@ import {Alert} from "@mui/lab";
 
 export const Hotels = () => {
     const isLoading = useSelector<AppRootStateType, boolean>(state => state.hotel.isLoading)
-    const error = useSelector<AppRootStateType,string>(state=>state.hotel.error)
+    const error = useSelector<AppRootStateType, string>(state => state.hotel.error)
     const dispatch = useDispatch()
     const isLoggedIn = useSelector<AppRootStateType, boolean>(state => state.login.isLoggedIn)
     const logOutHandler = () => {
         dispatch(setIsLoading(true))
-        setTimeout(()=>{
+        setTimeout(() => {
             dispatch(logIn(false))
             dispatch(setIsLoading(false))
-        },2000)
+        }, 2000)
     }
     const handleClose = (event?: React.SyntheticEvent, reason?: string) => {
         if (reason === 'clickaway') {
@@ -39,7 +38,7 @@ export const Hotels = () => {
     };
     if (!isLoggedIn) return <Redirect to={PATH.LOGIN}/>
     return <div className={s.hContainer}>
-        {error&&<Snackbar open={!!error} autoHideDuration={6000} onClose={handleClose}>
+        {error && <Snackbar open={!!error} autoHideDuration={6000} onClose={handleClose}>
             <Alert onClose={handleClose} severity="error" sx={{width: '100%'}}>
                 {error}
             </Alert>

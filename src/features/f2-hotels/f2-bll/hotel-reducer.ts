@@ -20,7 +20,6 @@ type InitialStateType = typeof initialState
 export const hotelReducer = (state: InitialStateType = initialState, action: HotelActionsType): InitialStateType => {
     switch (action.type) {
         case "HOTELS/FETCH-HOTELS": {
-            debugger
             return {
                 ...state,
                 hotels: [...action.hotels]
@@ -57,7 +56,7 @@ export const hotelReducer = (state: InitialStateType = initialState, action: Hot
                 daysCount: action.count
             }
         }
-        case "HOTELS/SET-IS-LOADING":{
+        case "HOTELS/SET-IS-LOADING": {
             return {
                 ...state,
                 isLoading: action.isLoading
@@ -104,11 +103,11 @@ export const setDaysCount = (count: number) => {
         count
     } as const
 }
-export const setIsLoading = (isLoading:boolean)=>{
+export const setIsLoading = (isLoading: boolean) => {
     return {
         type: 'HOTELS/SET-IS-LOADING',
         isLoading
-    }as const
+    } as const
 }
 export type HotelActionsType =
     ReturnType<typeof fetchHotels>
